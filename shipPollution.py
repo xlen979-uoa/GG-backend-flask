@@ -12,7 +12,7 @@ from haversine import haversine
 import math
 import numpy as np
 import joblib
-import tables
+# import tables
 
 # db_connection = pymysql.connect(host='database-mysql-1.cllmsnxsu4hy.ap-southeast-2.rds.amazonaws.com',
 #                                  user='admin',
