@@ -3,15 +3,14 @@ import json
 
 
 def id_test(mmsi):
-    url = f"http://127.0.0.1:8080/get/shipID?mmsi={mmsi}"
+    url = f"http://127.0.0.1:443/get/shipID?mmsi={mmsi}"
     res = requests.get(url)
     data = json.loads(res.content.decode('utf-8'))
-    print(data)
-    return res
+    return data
 
 
 def picture_test(ship_id):
-    url = f"http://127.0.0.1:8080/get/shipPicture?ship_id={ship_id}"
+    url = f"http://127.0.0.1:443/get/shipPicture?ship_id={ship_id}"
     res = requests.get(url)
     data = json.loads(res.content.decode('utf-8'))
     print(data)
@@ -19,23 +18,21 @@ def picture_test(ship_id):
 
 
 def get_pollution(mmsi):
-    # url = f"http://127.0.0.1:8080/get/pollution?mmsi={mmsi}"
+    # url = f"https://flask.marinehub.online:443/get/pollution?mmsi={mmsi}"
     # url = f"http://3.104.55.204:8080/get/pollution?mmsi={mmsi}" #aws
-    url = f"http://47.242.8.47:8080/get/pollution?mmsi={mmsi}" #ali
-
-    #
+    # url = f"http://47.242.8.47:8080/get/pollution?mmsi={mmsi}" #ali
+    url = f"http://127.0.0.1:443/get/pollution?mmsi={mmsi}"
     res = requests.get(url)
     data = json.loads(res.content.decode('utf-8'))
     print(data)
     return res
 
 def get_total_pollution(mmsi):
-    # url = f"http://127.0.0.1:8080/get/total_pollution?mmsi={mmsi}"
+    # url = f"https://flask.marinehub.online:443/get/total_pollution?mmsi={mmsi}"
     # url = f"http://13.236.117.100:8081/get/total_pollution?mmsi={mmsi}" old aws
     # url = f"http://3.104.55.204:8080/get/total_pollution?mmsi={mmsi}" #aws
-    # url = f"http://47.242.8.47:8080/get/pollution?mmsi={mmsi}" #ali
-    url = f"http://47.242.8.47:8080/get/total_pollution?mmsi={mmsi}" #aws
-
+    # url = f"http://47.242.8.47:8080/get/total_pollution?mmsi={mmsi}" #aws
+    url = f"http://127.0.0.1:443/get/total_pollution?mmsi={mmsi}"
 
     res = requests.get(url)
     data = json.loads(res.content.decode('utf-8'))
@@ -43,8 +40,10 @@ def get_total_pollution(mmsi):
     return res
 
 if __name__ == '__main__':
-
-    # res = id_test(6679681)
+    res = id_test(372417000)
+    print(res)
+    pic = picture_test(res["vessel_id"])
+    print(pic)
     # res = id_test(413795981) #4671150
     # get_pollution(512011106)
 
