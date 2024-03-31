@@ -12,8 +12,9 @@ class Config:
 
     BACK_END_URL = "https://eco.marinehub.online"
     MARINE_TRAFFIC_SEARCH_URL = "https://www.marinetraffic.com/en/search/"
+    MARINE_TRAFFIC_SEARCH_URL_NEW = "https://www.marinetraffic.com/en/global_search/search"
     MARINE_TRAFFIC_PHOTO_URL = "https://photos.marinetraffic.com/ais/"
-
+    MARINE_TRAFFIC_PHOTO_URL_NEW = "https://images.marinetraffic.com/collection/"
     MODEL_PATH = 'models'
     FUEL_MODEL = 'New_LinearRegression_Fuel.joblib'
     CO2_MODEL = 'New_LinearRegression_Co2.joblib'

@@ -23,6 +23,7 @@ def ship_id():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     url = app.config['MARINE_TRAFFIC_SEARCH_URL'] + f"searchAsset?what=vessel&term={mmsi}"
+    # url = app.config['MARINE_TRAFFIC_SEARCH_URL_NEW']+f"search?term={mmsi}"
     res = requests.get(url, headers=headers)
     id_data = json.loads(res.content.decode('utf-8'))
     if id_data:
@@ -35,7 +36,8 @@ def ship_id():
 def ship_pic():
     param = request.args.to_dict()
     ship_id = param['ship_id']
-    url = app.config['MARINE_TRAFFIC_PHOTO_URL'] + f"showphoto.aspx?shipid={ship_id}&size=thumb"
+    #url = app.config['MARINE_TRAFFIC_PHOTO_URL'] + f"showphoto.aspx?shipid={ship_id}&size=thumb"
+    url = app.config['MARINE_TRAFFIC_PHOTO_URL_NEW']+f"{ship_id}.webp"
     res = requests.get(url)
     if res.status_code == 200:
         return {'ship_image': url}
